@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+<body>
+  <header class="header">
+    <ul class="play-list">
+    </ul>
+    <div class="player">
+      <div class="volume">
+        <img src="assets/svg/volume.svg" class="volume-btn">
+        <input type="range" id="progress-volume" min="0" max="1" value="1" step="0.01">
+      </div>
+      <div class="player-controls">
+        <button class="play-prev player-icon"></button>
+        <button class="play player-icon"></button>
+        <button class="play-next player-icon"></button>
+      </div>
+      <div class="player-update">
+        <div class="song-name"></div>
+        <input type="range" id="progress-bar" min='00:00' max='00:00' value='0'>
+        <div class="currentTime">0:00</div>
+        <div class="durationTime">0:00</div>
+      </div>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" value="Minsk">
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name">
+    </div>
+  </main>
+  <footer class="footer">
+    <button class="links">Links</button>
+    <input type="text" class="input-link">
+    <nav id="link" class="link">
+      <ul class="links-list">
+        <li class="links-list-item"><a href="https://rolling-scopes-school.github.io/denfi92-JSFE2021Q3/museum-dom/" target="_blank">Museum</a></li>
+        <li class="links-list-item"><a href="https://denfi92.github.io/cssMemSlider/cssMemSlider/index.html" target="_blank">cssMemSLider</a></li>
+        <li class="links-list-item"><a href="https://denfi92.github.io/rsschool-cv/" target="_blank">CV</a></li>
+      </ul>
+      <span class="new-link">+ New Link</span>
+    </nav>
+    <button class="change-quote"></button>
+    <div class="quotes">
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+    <button class="cogwheel"><img src="assets/svg/cogwheel.svg"></img></button>
+    <nav id="options" class="options">
+      <ul class="options-list">
+        <li class="options-item">
+          <div>
+            <span class="language">Lang:</span>
+            <button class="ru"></button>
+            <button class="en"></button>
+          </div>
+        </li>
+        <li>Hide:</li>
+        <li class="options-item hide-item">
+          <button class="time-hide">Time</button>
+          <button class="date-hide">Date</button>
+          <button class="greet-hide">Greet</button>
+          <button class="quote-hide">Quote</button>
+          <button class="weather-hide">Weather</button>
+          <button class="audio-hide">Audio</button>
+          <button class="playlist-hide">Play-list</button>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>
