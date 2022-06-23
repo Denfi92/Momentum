@@ -1,4 +1,5 @@
 /* Время и календарь */
+
 const time = document.querySelector('.time');
 const date = document.querySelector('.date');
 let isEn = true;
@@ -41,7 +42,6 @@ function showDate() {
 
 /* Приветствие */
 
-
 function getTimeOfDay() {
   if (hours >= 6 && hours < 12) hours = 'morning';
   if (hours >= 12 && hours < 18) hours = 'afternoon';
@@ -49,10 +49,6 @@ function getTimeOfDay() {
   if (hours >= 23 || hours < 6 ) hours = 'night';
 }
 getTimeOfDay();
-
-
-
-
 
 function langChange() {
   if (!isEn) {
@@ -62,7 +58,6 @@ function langChange() {
   }
 }
 langChange();
-
 
 function getTimeOut() {
   let date1 = new Date();
@@ -154,22 +149,6 @@ function setBg() {
 }
 setBg();
 
-/*async function getLinkToImage() {
-  const url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=XPQtj2aBLikvIPjYKdTFlNzMRXBPVBnWQTScYcXfvgY';
-  const res = await fetch(url);
-  const data = await res.json();
-  const img = new Image();
-  img.src = `https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=XPQtj2aBLikvIPjYKdTFlNzMRXBPVBnWQTScYcXfvgY`;
-  img.onload = () => {
-    body.style.backgroundImage = `${data.urls.regular}`;
-  }
-  backgroundImage = "url('https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=XPQtj2aBLikvIPjYKdTFlNzMRXBPVBnWQTScYcXfvgY')";
-  body.style.backgroundImage = `${data.urls.regular}`;
-  console.log(body.style.backgroundImage)
-  console.log(data.urls.regular)
-}
-getLinkToImage();*/
-
 /* Слайдер */
 
 document.querySelector('.slide-next').addEventListener('click', getSlideNext) 
@@ -188,14 +167,14 @@ function getSlideNext() {
 
 
 function getSlidePrev() {
- randomNum--;
- if(randomNum < 10 ) {
+  randomNum--;
+  if(randomNum < 10 ) {
   randomNum = '0' + randomNum;
 }randomNum;
 if(randomNum == '00') {
   randomNum = 20;
 }
- body.style.backgroundImage = backgroundImage + hours + '/' + randomNum + '.jpg';
+  body.style.backgroundImage = backgroundImage + hours + '/' + randomNum + '.jpg';
 }
 
 /* Погода */
@@ -215,7 +194,7 @@ async function getWeather() {
   const data = await res.json();
   if(isEn) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=en&appid=b0cc2e3673bbe7bd786a938de77d3727&units=metric`;
-   const res = await fetch(url);
+    const res = await fetch(url);
     const data = await res.json();
     if (data.cod >= 400 && data.cod < 600) {
     return weatherIcon.className = '',
@@ -224,14 +203,14 @@ async function getWeather() {
     wind.textContent = '',
     humidity.textContent = '',
     weatherError.textContent = 'Error! Invalid name city';
-   }
-   return weatherIcon.className = 'weather-icon owf',
-   weatherIcon.classList.add(`owf-${data.weather[0].id}`),
-   temperature.textContent = `${data.main.temp.toFixed(0)}°C`,
-   weatherDescription.textContent = data.weather[0].description,
-   wind.textContent = 'Wind speed: ' + data.wind.speed.toFixed(0) + ' m/s',
-   humidity.textContent = 'Humidity: ' + data.main.humidity + ' %',
-   weatherError.textContent = '';
+    }
+    return weatherIcon.className = 'weather-icon owf',
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`),
+    temperature.textContent = `${data.main.temp.toFixed(0)}°C`,
+    weatherDescription.textContent = data.weather[0].description,
+    wind.textContent = 'Wind speed: ' + data.wind.speed.toFixed(0) + ' m/s',
+    humidity.textContent = 'Humidity: ' + data.main.humidity + ' %',
+    weatherError.textContent = '';
   } else {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&lang=ru&appid=b0cc2e3673bbe7bd786a938de77d3727&units=metric`;
     const res = await fetch(url);
@@ -243,14 +222,14 @@ async function getWeather() {
       wind.textContent = '',
       humidity.textContent = '',
       weatherError.textContent = 'Ошибка! Неправильный город';
-     }
-     return weatherIcon.className = 'weather-icon owf',
-     weatherIcon.classList.add(`owf-${data.weather[0].id}`),
-     temperature.textContent = `${data.main.temp.toFixed(0)}°C`,
-     weatherDescription.textContent = data.weather[0].description,
-     wind.textContent = 'Скорость ветра: ' + data.wind.speed.toFixed(0) + ' м/с',
-     humidity.textContent = 'Влажность: ' + data.main.humidity + ' %',
-     weatherError.textContent = '';
+      }
+      return weatherIcon.className = 'weather-icon owf',
+      weatherIcon.classList.add(`owf-${data.weather[0].id}`),
+      temperature.textContent = `${data.main.temp.toFixed(0)}°C`,
+      weatherDescription.textContent = data.weather[0].description,
+      wind.textContent = 'Скорость ветра: ' + data.wind.speed.toFixed(0) + ' м/с',
+      humidity.textContent = 'Влажность: ' + data.main.humidity + ' %',
+      weatherError.textContent = '';
   }
 }
 getWeather();
@@ -315,6 +294,7 @@ async function getQuotes() {
 getQuotes();
 
 /* Аудиоплеер */
+
 import playList from './playList.js';
 
 const playBtn = document.querySelector('.play');
@@ -407,7 +387,7 @@ function formatTime(seconds) {
 };
 
 
-/*звук*/
+/*Звук*/
 
 const volumeBar = document.getElementById('progress-volume');
 volumeBar.addEventListener('click', changeVolumeBar)
@@ -492,12 +472,9 @@ function playPrev() {
 }
 
 /* Настройки */
+
 const setup = document.querySelector('.cogwheel').addEventListener('click', showOptions);
-const links = document.querySelector('.links').addEventListener('click', showLinks);
-const newLink = document.querySelector('.new-link').addEventListener('click', addLink);
 const popup = document.querySelector('.options');
-const link = document.querySelector('.link');
-const linksList = document.querySelector('.links-list');
 const greetingContainer = document.querySelector('.greeting-container');
 const changeQuotes = document.querySelector('.change-quote');
 const quotes = document.querySelector('.quotes');
@@ -604,23 +581,4 @@ function enLang() {
 
 function showOptions() {
   popup.classList.toggle('open');
-}
-function showLinks() {
-  link.classList.toggle('open');
-}
-const inputLink = document.querySelector('.input-link')
-inputLink.addEventListener('change', addLink1)
-function addLink() {
-  inputLink.classList.toggle('open');
-}
-
-function addLink1() {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    li.classList.add('links-list-item');
-    a.textContent = inputLink.value;
-    a.textContent.split('https://');
-    a.href = inputLink.value;
-    linksList.append(li);
-    li.append(a);
 }
